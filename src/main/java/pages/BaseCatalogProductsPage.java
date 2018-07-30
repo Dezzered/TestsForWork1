@@ -6,10 +6,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
-abstract public class BaseCatalogProductsPage extends BasePage{
-    private final By COMMON_CATALOG_PAGE_ITEMS = By.id("schema-products");
-    private final By COMMON_CATALOG_FILTERS = By.id("schema-filter");
-    private final By COMMON_CATALOG_PAGE_ANY_FILTER = By.cssSelector(".schema-filter__fieldset");
+public abstract class BaseCatalogProductsPage extends BasePage {
+    private static final By COMMON_CATALOG_PAGE_ITEMS = By.id("schema-products");
+    private static final By COMMON_CATALOG_FILTERS = By.id("schema-filter");
+    private static final By COMMON_CATALOG_PAGE_ANY_FILTER = By.cssSelector(".schema-filter__fieldset");
 
     public BaseCatalogProductsPage(By identifyElementLocator, WebDriver d) {
         super(identifyElementLocator, d);
@@ -28,7 +28,7 @@ abstract public class BaseCatalogProductsPage extends BasePage{
         }
     }
 
-    public BaseCatalogProductsPage isProductsDisplayed(){
+    public BaseCatalogProductsPage isProductsDisplayed() {
         try {
             Assert.assertTrue(getDriver().findElement(COMMON_CATALOG_PAGE_ITEMS).isDisplayed());
             System.out.println("Products were displayed");
@@ -39,7 +39,7 @@ abstract public class BaseCatalogProductsPage extends BasePage{
         }
     }
 
-    public BaseCatalogProductsPage isFilterSectionDisplayed(){
+    public BaseCatalogProductsPage isFilterSectionDisplayed() {
         try {
             Assert.assertTrue(getDriver().findElement(COMMON_CATALOG_FILTERS).isDisplayed());
             System.out.println("Filter section was displayed");
@@ -50,7 +50,7 @@ abstract public class BaseCatalogProductsPage extends BasePage{
         }
     }
 
-    public BaseCatalogProductsPage isAnyFilterExisted(){
+    public BaseCatalogProductsPage isAnyFilterExisted() {
         try {
             Assert.assertTrue(getDriver().findElement(COMMON_CATALOG_PAGE_ANY_FILTER).isDisplayed());
             System.out.println("Any filter was displayed");
